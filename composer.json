@@ -19,16 +19,35 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-	"kertz/twitteroauth": "dev-master",
-	"friendsofsymfony/twitter-bundle": "dev-master"
+	"mopa/bootstrap-bundle": "dev-master",
+	"twitter/bootstrap":     "dev-master"
 
     },
+    "repositories": [
+       {
+           "type": "package",
+           "package": {
+               "version": "dev-master",
+               "name": "twitter/bootstrap",
+               "source": {
+                   "url": "https://github.com/twitter/bootstrap.git",
+                   "type": "git",
+                   "reference": "master"
+               },
+               "dist": {
+                   "url": "https://github.com/twitter/bootstrap/zipball/master",
+                   "type": "zip"
+                }
+           }
+       }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -41,7 +60,7 @@
         "bin-dir": "bin",
 	"process-timeout": "3600"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web"
